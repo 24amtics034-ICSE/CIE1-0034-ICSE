@@ -1,0 +1,71 @@
+@model LibraryMember
+@{
+    ViewData["Title"] = "Book Issue Details";
+    var book = ViewBag.Book as Book;
+    var status = Model.GetDueStatus();
+    var fine = Model.CalculateFine();
+}
+<div class="mb-4">
+    <a asp-action="Index" class="text-decoration-none">&larr; Back to issued books</a>
+    <h1 class="h2 mt-3">Issue Details</h1>
+    <p class="text-muted">Record #@Model.MemberId</p>
+</div>
+
+@if (status == "Returned")
+{
+    <div class="alert alert-success">This book has been returned successfully.</div>
+}
+else if (status == "Due Soon")
+{
+    <div class="alert alert-warning">This book is due soon. Please return it by @Model.DueDate.ToString("dd MMM yyyy").</div>
+}
+else if (status == "Overdue")
+{
+    <div class="alert alert-danger">This book is overdue. @if (fine > 0) { <span>Current fine: ₹@fine.ToString("0.00").</span> }</div>
+}
+else
+{
+    <div class="alert alert-primary">This book is currently issued.</div>
+}
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header bg-light"><h2 class="h5 mb-0">Member information</h2></div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">Member name</dt><dd class="col-sm-7">@Model.MemberName</dd>
+                    <dt class="col-sm-5">Department</dt><dd class="col-sm-7">@Model.Department</dd>
+                    <dt class="col-sm-5">Email</dt><dd class="col-sm-7">@Model.Email</dd>
+                    <dt class="col-sm-5">Member ID</dt><dd class="col-sm-7">@Model.MemberId</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header bg-light"><h2 class="h5 mb-0">Book information</h2></div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">Book title</dt><dd class="col-sm-7">@(book?.Title ?? $"Book #{Model.BookId}")</dd>
+                    <dt class="col-sm-5">Author</dt><dd class="col-sm-7">@(book?.Author ?? "Unknown")</dd>
+                    <dt class="col-sm-5">Category</dt><dd class="col-sm-7">@(book?.Category ?? "Unknown")</dd>
+                    <dt class="col-sm-5">Issue date</dt><dd class="col-sm-7">@Model.IssueDate.ToString("dd MMM yyyy")</dd>
+                    <dt class="col-sm-5">Return date</dt><dd class="col-sm-7">@(Model.ReturnDate?.ToString("dd MMM yyyy") ?? "Not returned")</dd>
+                    <dt class="col-sm-5">Due date</dt><dd class="col-sm-7">@Model.DueDate.ToString("dd MMM yyyy")</dd>
+                    <dt class="col-sm-5">Due status</dt><dd class="col-sm-7">@status</dd>
+                    <dt class="col-sm-5">Fine amount</dt><dd class="col-sm-7">₹@fine.ToString("0.00")</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-4 d-flex gap-2">
+    @if (!Model.ReturnDate.HasValue)
+    {
+        <form asp-action="MarkReturned" asp-route-id="@Model.MemberId" method="post">
+            <button type="submit" class="btn btn-success">Mark as Returned</button>
+        </form>
+    }
+    <a asp-action="Index" class="btn btn-outline-secondary">Back to list</a>
+</div>

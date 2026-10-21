@@ -1,0 +1,92 @@
+@model IEnumerable<LibraryMember>
+@{
+    ViewData["Title"] = "Issued Books";
+    var books = ViewBag.Books as List<Book> ?? new List<Book>();
+}
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <div>
+        <h1 class="h2 mb-1">Issued Books</h1>
+        <p class="text-muted mb-0">Track issued books, return dates and library fines.</p>
+    </div>
+    <a asp-controller="Library" asp-action="IssueBook" class="btn btn-primary">+ Issue a Book</a>
+</div>
+
+@if (TempData["Success"] is string successMessage)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @successMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h2 class="h5">Book inventory</h2>
+        <div class="table-responsive">
+            <table class="table table-sm table-striped align-middle mb-0">
+                <thead><tr><th>ID</th><th>Book</th><th>Author</th><th>Available copies</th></tr></thead>
+                <tbody>
+                @foreach (var book in books)
+                {
+                    <tr><td>@book.BookId</td><td>@book.Title</td><td>@book.Author</td><td>@book.AvailableCopies</td></tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h2 class="h5 mb-3">Issue register</h2>
+        @if (!Model.Any())
+        {
+            <div class="text-center py-5">
+                <p class="text-muted mb-3">No books have been issued yet.</p>
+                <a asp-action="IssueBook" class="btn btn-outline-primary">Create first issue</a>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr><th>Member</th><th>Department</th><th>Book</th><th>Issue Date</th><th>Return Date</th><th>Due Date</th><th>Status / Fine</th><th>Action</th></tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var member in Model)
+                    {
+                        var book = books.FirstOrDefault(b => b.BookId == member.BookId);
+                        var status = member.GetDueStatus();
+                        var fine = member.CalculateFine();
+                        <tr>
+                            <td>@member.MemberName</td>
+                            <td>@member.Department</td>
+                            <td>@(book?.Title ?? $"Book #{member.BookId}")</td>
+                            <td>@member.IssueDate.ToString("dd MMM yyyy")</td>
+                            <td>@(member.ReturnDate?.ToString("dd MMM yyyy") ?? "—")</td>
+                            <td>@member.DueDate.ToString("dd MMM yyyy")</td>
+                            <td>
+                                @if (status == "Returned") { <span class="badge bg-success">Returned</span> }
+                                else if (status == "Due Soon") { <span class="badge bg-warning text-dark">Due Soon</span> }
+                                else if (status == "Overdue") { <span class="badge bg-danger">Overdue</span> }
+                                else { <span class="badge bg-primary">Issued</span> }
+                                @if (fine > 0) { <div class="small text-danger mt-1">Fine: ₹@fine.ToString("0.00")</div> }
+                            </td>
+                            <td>
+                                <a asp-action="BookDetails" asp-route-id="@member.MemberId" class="btn btn-sm btn-outline-primary">Details</a>
+                                @if (!member.ReturnDate.HasValue)
+                                {
+                                    <form asp-action="MarkReturned" asp-route-id="@member.MemberId" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm btn-outline-success mt-1">Return</button>
+                                    </form>
+                                }
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

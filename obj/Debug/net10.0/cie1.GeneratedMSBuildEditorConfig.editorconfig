@@ -1,0 +1,59 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = cie1
+build_property.RootNamespace = cie1
+build_property.ProjectDir = /home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/Library/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGlicmFyeS9BYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/Library/BookDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGlicmFyeS9Cb29rRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/Library/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGlicmFyeS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/Library/IssueBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGlicmFyeS9Jc3N1ZUJvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-bvaya12ec0

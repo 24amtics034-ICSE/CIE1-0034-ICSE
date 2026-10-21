@@ -1,0 +1,8 @@
+/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/obj/Debug/net10.0/rpswa.dswa.cache.json
+/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/obj/Debug/net10.0/cie1.GeneratedMSBuildEditorConfig.editorconfig
+/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/obj/Debug/net10.0/cie1.AssemblyInfoInputs.cache
+/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/obj/Debug/net10.0/cie1.AssemblyInfo.cs
+/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/obj/Debug/net10.0/cie1.csproj.CoreCompileInputs.cache
+/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/obj/Debug/net10.0/cie1.MvcApplicationPartsAssemblyInfo.cache
+/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/obj/Debug/net10.0/cie1.RazorAssemblyInfo.cache
+/home/aadil/dotnetProjects/aspNet/CIE1-0034-ICSE/obj/Debug/net10.0/cie1.RazorAssemblyInfo.cs

@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "About the Library";
+}
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <div class="p-4 p-md-5 bg-light rounded-3">
+            <h1 class="display-6">About the College Library</h1>
+            <p class="lead">A simple digital system for managing book issues and returns for college students.</p>
+            <hr class="my-4" />
+            <p>The college library supports teaching, learning and research by providing access to books across programming, computer science, databases and other subjects.</p>
+            <p>This application lets a librarian record the student, department, email, book ID and issue date; review return and due dates; and see due status and any overdue fine.</p>
+            <ul>
+                <li>Books are listed with their available copy counts.</li>
+                <li>Issue records can be opened for full details.</li>
+                <li>The sample fine is ₹10 per overdue day.</li>
+                <li>Sample records are stored in memory and reset when the application restarts.</li>
+            </ul>
+            <a asp-action="Index" class="btn btn-primary">View Issued Books</a>
+            <a asp-action="IssueBook" class="btn btn-outline-primary ms-2">Issue a Book</a>
+        </div>
+    </div>
+</div>
